@@ -1,0 +1,14 @@
+from random import *
+num = randint(1, 100)
+digit = int(input("Введи число, которое загадали: "))
+flag = False
+while flag != True:
+    if digit > num:
+        print("Слишком много, попробуйте еще раз")
+    elif digit < num:
+        print("Слишком мало, попробуйте еще раз")
+    else:
+        print("Вы угадали, поздравляем!")
+        flag = True
+        break
+    digit = int(input("Введи число, которое загадали: "))
