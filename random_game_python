@@ -1,14 +1,26 @@
 from random import *
 num = randint(1, 100)
-digit = int(input("Введи число, которое загадали: "))
-flag = False
-while flag != True:
-    if digit > num:
-        print("Слишком много, попробуйте еще раз")
-    elif digit < num:
-        print("Слишком мало, попробуйте еще раз")
-    else:
-        print("Вы угадали, поздравляем!")
-        flag = True
-        break
-    digit = int(input("Введи число, которое загадали: "))
+print("Добро пожаловать в числовую угадайку.")
+total = 0
+
+def is_valid(digit):
+    if digit.isdigit() and 1 <= int(digit) <= 100:
+        return True
+    print("Введите число от 1 до 100, пожалуйста")
+    return False
+while True:
+    digit = input("Введите число от 1 до 100: ")
+    if is_valid(digit):
+        total += 1
+        digit = int(digit)
+        if digit == num:
+            print("Поздравляю!", "Количество попыток: ", total)
+            break
+        elif digit > num:
+            print("Число меньше")
+        elif digit < num:
+            print("Число больше")
+        else:
+            print("Введите корректные данные")
+
+print("Спасибо, что играли в числовую угадайку. Еще увидимся...")
